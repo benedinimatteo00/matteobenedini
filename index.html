@@ -20,6 +20,13 @@
             --bg-light: #ffffff;
             --bg-gray: #f8fafc;
             --transition: all 0.2s ease-in-out;
+
+            /* ================================================
+               MODIFICA 3: sfondo locale dalla repository.
+               Sostituisci il percorso con il nome esatto del
+               tuo file, es. assets/img/background.jpg
+               ================================================ */
+            --bg-image: url('assets/img/sfondo.jpg');
         }
 
         * {
@@ -38,13 +45,12 @@
             flex-direction: column;
         }
 
-        /* Font moderno ed essenziale per la struttura generale, schede e menu */
         h3, .nav-brand, .section-title-clean, .card-title {
             font-family: 'Inter', sans-serif;
             font-weight: 700;
         }
 
-        /* FONT DA IMMAGINE (Playfair Display Italic) APPLICATO SOLO ED ESCLUSIVAMENTE AI TITOLI DELLE PAGINE */
+        /* FONT Playfair Display Italic SOLO per titoli di pagina */
         .hero h1, .page-banner h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -128,10 +134,14 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- STILE HERO E BANNER PANORAMICI --- */
+        /* =====================================================
+           MODIFICA 3: sfondo locale usato ovunque al posto
+           dell'URL Unsplash (hero, page-banner, item-header,
+           footer).
+           ===================================================== */
         .hero, .page-banner {
             background: linear-gradient(var(--overlay-color), var(--overlay-color)), 
-                        url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1920') no-repeat center center;
+                        var(--bg-image) no-repeat center center;
             background-size: cover;
             display: flex;
             flex-direction: column;
@@ -142,31 +152,58 @@
             padding: 0 1rem;
         }
 
-        .hero { height: 40vh; }
-        .hero h1 { font-size: 3.8rem; margin-bottom: 0.5rem; letter-spacing: -0.5px; }
-        .hero p { font-size: 1.25rem; font-weight: 300; color: #cbd5e1; }
+        /* =====================================================
+           MODIFICA 2: hero ridisegnato con foto affiancata
+           al nome (layout flex row).
+           ===================================================== */
+        .hero {
+            height: 40vh;
+            /* Override: allineiamo i contenuti in riga */
+            flex-direction: row;
+            justify-content: center;
+            gap: 3rem;
+            text-align: left;
+            padding: 0 10%;
+        }
+
+        /* Contenitore foto rettangolare nell'hero */
+        .hero-photo {
+            flex-shrink: 0;
+            width: 130px;
+            height: 160px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        /* Testi dell'hero affiancati alla foto */
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.4rem;
+        }
+
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 0.2rem;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #cbd5e1;
+            margin: 0;
+        }
 
         .page-banner { height: 20vh; width: 100%; }
         .page-banner h2 { font-size: 2.6rem; letter-spacing: -0.5px; }
 
-        .profile-container {
-            position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 10;
-        }
-
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--bg-light);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            margin-top: -75px;
-            background-color: #e2e8f0;
-        }
+        /* Il vecchio profile-container non è più usato nella home,
+           ma lo teniamo hidden per sicurezza */
+        .profile-container { display: none; }
 
         /* --- CONTENITORI CONTENUTI --- */
         .content-wrapper {
@@ -183,11 +220,10 @@
             margin-bottom: 2rem;
         }
 
-        /* Testo fluido stile Home */
         .fluid-text p { margin-bottom: 1.5rem; font-size: 1.1rem; }
         .fluid-text h3 { font-size: 1.4rem; color: var(--primary-color); margin-top: 2.5rem; margin-bottom: 1rem; }
 
-        /* --- STILE STRUTTURA AD ELENCO (SCHEDE INSEGNAMENTI/REFERENZE) --- */
+        /* --- STILE STRUTTURA AD ELENCO --- */
         .custom-list {
             display: flex;
             flex-direction: column;
@@ -202,10 +238,10 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
-        /* Intestazione delle schede con lo sfondo fotografico della Home */
+        /* MODIFICA 3: intestazione schede con sfondo locale */
         .item-header {
             background: linear-gradient(var(--overlay-color), var(--overlay-color)), 
-                        url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800') no-repeat center center;
+                        var(--bg-image) no-repeat center center;
             background-size: cover;
             padding: 1rem 1.8rem;
         }
@@ -235,7 +271,6 @@
             font-weight: 500;
         }
 
-        /* Stile per i paper di ricerca */
         .research-paper-title {
             font-size: 1.3rem;
             font-style: italic;
@@ -247,9 +282,10 @@
         }
 
         /* --- FOOTER GLOBAL --- */
+        /* MODIFICA 3: footer con sfondo locale */
         footer {
             background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), 
-                        url('https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?q=80&w=1920') no-repeat center center;
+                        var(--bg-image) no-repeat center center;
             background-size: cover;
             color: var(--text-light);
             padding: 4rem 10%;
@@ -260,7 +296,15 @@
             gap: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .footer-left h4, .footer-right h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #94a3b8; }
+
+        .footer-left h4, .footer-right h4 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #94a3b8;
+        }
+
         .footer-left address { font-style: normal; color: #cbd5e1; line-height: 1.8; }
         .social-link { display: inline-block; margin-top: 1.5rem; font-size: 1.5rem; color: #cbd5e1; }
         .social-link:hover { color: #60a5fa; }
@@ -273,8 +317,18 @@
             .navbar { padding: 1rem 5%; flex-direction: column; gap: 0.8rem; }
             .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
             main { padding-top: 110px; }
-            .hero { height: 30vh; }
+
+            /* Hero mobile: torna in colonna */
+            .hero {
+                height: auto;
+                flex-direction: column;
+                text-align: center;
+                padding: 2.5rem 1rem;
+                gap: 1.5rem;
+            }
             .hero h1 { font-size: 2.8rem; }
+            .hero-photo { width: 110px; height: 140px; }
+
             .page-banner h2 { font-size: 2.2rem; }
             .content-wrapper { padding: 2rem 5% 4rem 5%; }
             footer { padding: 3rem 5%; flex-direction: column; gap: 2rem; }
@@ -296,27 +350,32 @@
 
     <main>
 
+        <!-- HOME PAGE -->
         <div id="home-page" class="page-section">
             <div class="hero">
-                <h1>Matteo Benedini</h1>
-                <p>Ph.D. student</p>
-                <p>University of Verona</p>
+                <!-- MODIFICA 2: foto rettangolare affiancata al nome -->
+                <img class="hero-photo" src="assets/img/profile.jpg" alt="Matteo Benedini">
+                <div class="hero-text">
+                    <h1>Matteo Benedini</h1>
+                    <p>Ph.D. student</p>
+                    <p>University of Verona</p>
+                </div>
             </div>
-            <div class="profile-container">
-    <img class="profile-pic" src="assets/img/profile.jpg" alt="Matteo Benedini">
-</div>
-            <div class="content-wrapper" style="padding-top: 1rem;">
+            <!-- Il vecchio profile-container è mantenuto ma nascosto -->
+            <div class="profile-container"></div>
+            <div class="content-wrapper" style="padding-top: 2rem;">
                 <h2 class="section-title-clean">Hello there!</h2>
                 <div class="fluid-text">
                     <p>I am a second year Ph.D. student in Economics and Finance at the University of Verona, Department of Economics.</p>
                     <p>I studied at the University of Verona where I obtained my Bachelor's degree in Business Administration and my Master's degree in Quantitative Finance.</p>
                     <p>My research interests are: <strong>Game Theory and Political Economy</strong>.</p>
-                    <p>Please find the latest version of my CV <a href="#" target="_blank">here</a>.</p>
+                    <p>Please find the latest version of my CV <a href="https://drive.google.com/file/d/1B1nQcLQ2S7HV3RCZ1yYB8o0v6ySkFnml/view?usp=sharing" target="_blank">here</a>.</p>
                     <p>Email Address: <a href="mailto:matteo.benedini@univr.it">matteo.benedini@univr.it</a></p>
                 </div>
             </div>
         </div>
 
+        <!-- TEACHING PAGE -->
         <div id="teaching-page" class="page-section">
             <div class="page-banner">
                 <h2>Teaching Activities</h2>
@@ -358,6 +417,7 @@
             </div>
         </div>
 
+        <!-- RESEARCH PAGE -->
         <div id="research-page" class="page-section">
             <div class="page-banner">
                 <h2>Research</h2>
@@ -374,6 +434,7 @@
             </div>
         </div>
 
+        <!-- REFERENCES PAGE -->
         <div id="references-page" class="page-section">
             <div class="page-banner">
                 <h2>References</h2>
@@ -405,6 +466,7 @@
             </div>
         </div>
 
+        <!-- PERSONAL PAGE -->
         <div id="personal-page" class="page-section">
             <div class="page-banner">
                 <h2>Personal Interests</h2>
@@ -413,10 +475,10 @@
                 <h2 class="section-title-clean">Beyond Academia</h2>
                 <div class="fluid-text">
                     <h3 class="card-title">Hobbies & Passions</h3>
-                    <p>Outside of my research schedule, I enjoy balancing my analytical work with creative and physical activities. My personal interests include listening to music, playing guitar, reading books, and running.</p>
+                    <p>Outside of my research schedule, .</p>
                     
                     <h3 class="card-title">Martial Arts</h3>
-                    <p>Discipline has always been a core part of my life. I practiced karate for many years, dedicating myself to the art until I successfully attained the rank of <strong>3rd Dan Black Belt</strong>.</p>
+                    <p> of <strong>3rd Dan Black Belt</strong>.</p>
                 </div>
             </div>
         </div>
@@ -434,8 +496,8 @@
             </address>
             <a href="#" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
         </div>
+        <!-- MODIFICA 1: rimossa l'intestazione <h4>Quote</h4> -->
         <div class="footer-right">
-            <h4>Quote</h4>
             <p class="quote">"Not everything that can be counted counts, and not everything that counts can be counted."</p>
             <p class="quote-author">— Albert Einstein</p>
         </div>
