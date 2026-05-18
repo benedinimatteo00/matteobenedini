@@ -27,7 +27,7 @@
                ================================================ */
 
             /* Hero della Home */
-            --bg-hero:              url('assets/img/sfondo.jpg');
+            --bg-hero:              url('assets/img/background.jpg');
 
             /* Banner in cima a ciascuna pagina interna */
             --bg-banner-teaching:   url('assets/img/bg-teaching.jpg');
@@ -147,8 +147,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Stili strutturali comuni a hero e banner (senza sfondo,
-           che viene assegnato individualmente sotto) */
+        /* Stili strutturali comuni a hero e banner */
         .hero, .page-banner {
             display: flex;
             flex-direction: column;
@@ -160,31 +159,20 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
+            /* text-shadow per leggibilità senza overlay colorato */
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
         }
 
-        /* ── Hero Home: usa solo --bg-hero ── */
+        /* ── Hero Home: solo la foto, nessun overlay ── */
         .hero {
-            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
-                              var(--bg-hero);
+            background-image: var(--bg-hero);
         }
 
-        /* ── Banner pagine interne: uno sfondo dedicato per pagina ── */
-        #teaching-page   .page-banner {
-            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
-                              var(--bg-banner-teaching);
-        }
-        #research-page   .page-banner {
-            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
-                              var(--bg-banner-research);
-        }
-        #references-page .page-banner {
-            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
-                              var(--bg-banner-references);
-        }
-        #personal-page   .page-banner {
-            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
-                              var(--bg-banner-personal);
-        }
+        /* ── Banner pagine interne: foto pura, nessun overlay ── */
+        #teaching-page   .page-banner { background-image: var(--bg-banner-teaching);   }
+        #research-page   .page-banner { background-image: var(--bg-banner-research);   }
+        #references-page .page-banner { background-image: var(--bg-banner-references); }
+        #personal-page   .page-banner { background-image: var(--bg-banner-personal);   }
 
         /* =====================================================
            Hero: foto più grande, affiancata al nome.
@@ -270,10 +258,9 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
-        /* ── Intestazioni schede: sfondo dedicato ── */
+        /* ── Intestazioni schede: solo foto, nessun overlay ── */
         .item-header {
-            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
-                              var(--bg-item-header);
+            background-image: var(--bg-item-header);
             background-size: cover;
             background-position: center center;
             padding: 1rem 1.8rem;
@@ -283,6 +270,7 @@
             font-size: 1.4rem;
             color: var(--text-light);
             letter-spacing: 0.3px;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.7);
         }
 
         .item-body {
@@ -512,7 +500,7 @@
                     <p>Outside of my research schedule, I enjoy balancing my analytical work with creative and physical activities. My personal interests include listening to music, playing guitar, reading books, and running.</p>
                     
                     <h3 class="card-title">Martial Arts</h3>
-                    <p>Discipline has always been a core part of my life. I practiced karate for many years, dedicating myself to the art until I successfully attained the rank of <strong>3rd Dan Black Belt</strong>.</p>
+                    <p>Disnk of <strong>3rd Dan Black Belt</strong>.</p>
                 </div>
             </div>
         </div>
@@ -528,7 +516,7 @@
                 Via Cantarane, 24<br>
                 37129 Verona, Italy
             </address>
-            <a href="www.linkedin.com/in/matteo-benedini-754b4a208" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+            <a href="http://linkedin.com/in/matteo-benedini-754b4a208" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
         </div>
         <!-- MODIFICA 1: rimossa l'intestazione <h4>Quote</h4> -->
         <div class="footer-right">
