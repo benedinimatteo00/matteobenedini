@@ -10,20 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* --- VARIABILI E RESET (Blu Oxford / Deep Navy) --- */
+        /* --- VARIABILI E RESET --- */
         :root {
-            --primary-color: #1e3a8a;    
-            --overlay-color: rgba(30, 58, 138, 0.8); 
-            --accent-color: #3b82f6;     
-            --text-dark: #1e293b;
-            --text-light: #f8fafc;
-            --bg-light: #ffffff;
-            --bg-gray: #f8fafc;
-            --transition: all 0.2s ease-in-out;
+            --primary-color: #1e3a8a;
+            --accent-color:  #3b82f6;
+            --text-dark:     #1e293b;
+            --text-light:    #f8fafc;
+            --bg-light:      #ffffff;
+            --bg-gray:       #f8fafc;
+            --transition:    all 0.2s ease-in-out;
 
             /* ================================================
-               SFONDI — cambia ogni percorso con il file che
-               preferisci dalla tua repository.
+               SFONDI — sostituisci ogni percorso con il file
+               che vuoi dalla tua repository.
                ================================================ */
 
             /* Hero della Home */
@@ -42,11 +41,7 @@
             --bg-footer:            url('assets/img/bg-footer.jpg');
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html, body {
             height: 100%;
@@ -63,7 +58,7 @@
             font-weight: 700;
         }
 
-        /* FONT Playfair Display Italic SOLO per titoli di pagina */
+        /* Playfair Display Italic — solo titoli di pagina */
         .hero h1, .page-banner h2 {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
@@ -72,7 +67,7 @@
 
         main {
             flex: 1;
-            padding-top: 70px; 
+            padding-top: 70px;
             display: flex;
             flex-direction: column;
         }
@@ -83,16 +78,12 @@
             transition: var(--transition);
             font-weight: 500;
         }
+        a:hover { text-decoration: underline; }
 
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* --- NAVIGAZIONE GLOBALE --- */
+        /* --- NAVIGAZIONE --- */
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
             background-color: var(--primary-color);
             display: flex;
@@ -102,19 +93,8 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
-        .nav-brand {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 1.8rem;
-        }
-
+        .nav-brand { font-size: 1.3rem; color: var(--text-light); letter-spacing: 0.5px; }
+        .nav-links  { display: flex; list-style: none; gap: 1.8rem; }
         .nav-links a {
             color: #93c5fd;
             font-weight: 500;
@@ -124,30 +104,23 @@
             border-bottom: 2px solid transparent;
             transition: var(--transition);
         }
-
-        .nav-links a:hover, .nav-links a.active {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--text-light);
             text-decoration: none;
             border-bottom: 2px solid var(--text-light);
         }
 
-        /* --- STRUTTURA DELLE PAGINE --- */
-        .page-section {
-            display: none;
-            width: 100%;
-            animation: fadeIn 0.4s ease;
-        }
-
-        #home-page {
-            display: block;
-        }
+        /* --- PAGINE --- */
+        .page-section { display: none; width: 100%; animation: fadeIn 0.4s ease; }
+        #home-page    { display: block; }
 
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* Stili strutturali comuni a hero e banner */
+        /* ── Stili base per hero e banner (NESSUN overlay colorato) ── */
         .hero, .page-banner {
             display: flex;
             flex-direction: column;
@@ -159,97 +132,65 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            /* text-shadow per leggibilità senza overlay colorato */
-            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+            /* ombra leggera sul testo per leggibilità senza overlay */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.65);
         }
 
-        /* ── Hero Home: solo la foto, nessun overlay ── */
+        /* ── Hero Home: foto pura, ZERO overlay ── */
         .hero {
             background-image: var(--bg-hero);
+            height: 58vh;
+            flex-direction: row;
+            justify-content: center;
+            gap: 4rem;
+            text-align: left;
+            padding: 0 10%;
         }
 
-        /* ── Banner pagine interne: foto pura, nessun overlay ── */
+        /* ── Banner pagine interne: immagine diversa per pagina, ZERO overlay ── */
         #teaching-page   .page-banner { background-image: var(--bg-banner-teaching);   }
         #research-page   .page-banner { background-image: var(--bg-banner-research);   }
         #references-page .page-banner { background-image: var(--bg-banner-references); }
         #personal-page   .page-banner { background-image: var(--bg-banner-personal);   }
 
-        /* =====================================================
-           Hero: foto più grande, affiancata al nome.
-           ===================================================== */
-        .hero {
-            height: 52vh;
-            flex-direction: row;
-            justify-content: center;
-            gap: 3.5rem;
-            text-align: left;
-            padding: 0 10%;
-        }
+        .page-banner { height: 20vh; width: 100%; }
+        .page-banner h2 { font-size: 2.6rem; letter-spacing: -0.5px; }
 
-        /* Foto rettangolare — dimensioni aumentate */
+        /* ── Foto profilo più grande ── */
         .hero-photo {
             flex-shrink: 0;
-            width: 180px;
-            height: 220px;
+            width: 220px;
+            height: 270px;
             border-radius: 8px;
             object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+            border: 4px solid rgba(255,255,255,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
-        /* Testi dell'hero affiancati alla foto */
         .hero-text {
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 0.4rem;
         }
+        .hero h1 { font-size: 3.8rem; margin-bottom: 0.2rem; letter-spacing: -0.5px; }
+        .hero p  { font-size: 1.2rem; font-weight: 300; color: #e2e8f0; margin: 0; }
 
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 0.2rem;
-            letter-spacing: -0.5px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: #cbd5e1;
-            margin: 0;
-        }
-
-        .page-banner { height: 20vh; width: 100%; }
-        .page-banner h2 { font-size: 2.6rem; letter-spacing: -0.5px; }
-
-        /* Il vecchio profile-container non è più usato nella home,
-           ma lo teniamo hidden per sicurezza */
         .profile-container { display: none; }
 
-        /* --- CONTENITORI CONTENUTI --- */
+        /* --- CONTENUTI --- */
         .content-wrapper {
             padding: 3rem 10% 5rem 10%;
             max-width: 900px;
             margin: 0 auto;
             width: 100%;
         }
-
-        .section-title-clean {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 2rem;
-        }
-
-        .fluid-text p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .section-title-clean { font-size: 2.2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 2rem; }
+        .fluid-text p  { margin-bottom: 1.5rem; font-size: 1.1rem; }
         .fluid-text h3 { font-size: 1.4rem; color: var(--primary-color); margin-top: 2.5rem; margin-bottom: 1rem; }
 
-        /* --- STILE STRUTTURA AD ELENCO --- */
-        .custom-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
+        /* --- SCHEDE --- */
+        .custom-list { display: flex; flex-direction: column; gap: 2rem; }
         .list-item {
             background-color: var(--bg-light);
             border: 1px solid #e2e8f0;
@@ -258,39 +199,23 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
-        /* ── Intestazioni schede: solo foto, nessun overlay ── */
+        /* ── Intestazioni schede: immagine pura, ZERO overlay ── */
         .item-header {
             background-image: var(--bg-item-header);
             background-size: cover;
             background-position: center center;
             padding: 1rem 1.8rem;
         }
-
         .item-header h3 {
             font-size: 1.4rem;
             color: var(--text-light);
             letter-spacing: 0.3px;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.7);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.75);
         }
 
-        .item-body {
-            padding: 1.8rem;
-            background-color: var(--bg-light);
-        }
-
-        .item-body .meta-info {
-            font-size: 1.05rem;
-            font-weight: 400;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .item-body .sub-info {
-            display: inline-block;
-            color: #64748b;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
+        .item-body { padding: 1.8rem; background-color: var(--bg-light); }
+        .item-body .meta-info { font-size: 1.05rem; font-weight: 400; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .item-body .sub-info  { display: inline-block; color: #64748b; font-size: 0.95rem; font-weight: 500; }
 
         .research-paper-title {
             font-size: 1.3rem;
@@ -302,10 +227,9 @@
             margin: 1rem 0;
         }
 
-        /* --- FOOTER GLOBAL --- */
-        /* ── Footer: sfondo dedicato ── */
+        /* --- FOOTER (velo scuro neutro — necessario per leggibilità testo bianco) --- */
         footer {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)),
+            background-image: linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.92)),
                               var(--bg-footer);
             background-size: cover;
             background-position: center center;
@@ -316,31 +240,22 @@
             align-items: flex-start;
             flex-wrap: wrap;
             gap: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
-
-        .footer-left h4, .footer-right h4 {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            color: #94a3b8;
-        }
-
+        .footer-left h4, .footer-right h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #94a3b8; }
         .footer-left address { font-style: normal; color: #cbd5e1; line-height: 1.8; }
         .social-link { display: inline-block; margin-top: 1.5rem; font-size: 1.5rem; color: #cbd5e1; }
         .social-link:hover { color: #60a5fa; }
         .footer-right { max-width: 450px; }
-        .quote { font-style: italic; font-size: 1.1rem; color: #cbd5e1; margin-bottom: 0.5rem; }
+        .quote        { font-style: italic; font-size: 1.1rem; color: #cbd5e1; margin-bottom: 0.5rem; }
         .quote-author { font-size: 0.95rem; color: #94a3b8; text-align: right; }
 
-        /* --- RESPONSIVE DESIGN --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .navbar { padding: 1rem 5%; flex-direction: column; gap: 0.8rem; }
             .nav-links { gap: 1rem; flex-wrap: wrap; justify-content: center; }
             main { padding-top: 110px; }
 
-            /* Hero mobile: torna in colonna */
             .hero {
                 height: auto;
                 flex-direction: column;
@@ -348,12 +263,12 @@
                 padding: 2.5rem 1rem;
                 gap: 1.5rem;
             }
-            .hero h1 { font-size: 2.8rem; }
-            .hero-photo { width: 150px; height: 185px; }
+            .hero h1    { font-size: 2.8rem; }
+            .hero-photo { width: 160px; height: 200px; }
 
-            .page-banner h2 { font-size: 2.2rem; }
+            .page-banner h2  { font-size: 2.2rem; }
             .content-wrapper { padding: 2rem 5% 4rem 5%; }
-            footer { padding: 3rem 5%; flex-direction: column; gap: 2rem; }
+            footer           { padding: 3rem 5%; flex-direction: column; gap: 2rem; }
         }
     </style>
 </head>
@@ -375,7 +290,6 @@
         <!-- HOME PAGE -->
         <div id="home-page" class="page-section">
             <div class="hero">
-                <!-- MODIFICA 2: foto rettangolare affiancata al nome -->
                 <img class="hero-photo" src="assets/img/profile.jpg" alt="Matteo Benedini">
                 <div class="hero-text">
                     <h1>Matteo Benedini</h1>
@@ -383,7 +297,6 @@
                     <p>University of Verona</p>
                 </div>
             </div>
-            <!-- Il vecchio profile-container è mantenuto ma nascosto -->
             <div class="profile-container"></div>
             <div class="content-wrapper" style="padding-top: 2rem;">
                 <h2 class="section-title-clean">Hello there!</h2>
@@ -404,11 +317,9 @@
             </div>
             <div class="content-wrapper">
                 <div class="custom-list">
-                    
+
                     <div class="list-item">
-                        <div class="item-header">
-                            <h3>Industrial Organization, T.A.</h3>
-                        </div>
+                        <div class="item-header"><h3>Industrial Organization, T.A.</h3></div>
                         <div class="item-body">
                             <p class="meta-info">B.Sc. in Business Administration, University of Verona</p>
                             <span class="sub-info"><i class="far fa-calendar-alt"></i> Spring 2026</span>
@@ -416,9 +327,7 @@
                     </div>
 
                     <div class="list-item">
-                        <div class="item-header">
-                            <h3>Financial Mathematics, T.A.</h3>
-                        </div>
+                        <div class="item-header"><h3>Financial Mathematics, T.A.</h3></div>
                         <div class="item-body">
                             <p class="meta-info">B.Sc. in Business Administration, University of Verona</p>
                             <span class="sub-info"><i class="far fa-calendar-alt"></i> Spring 2026, Spring 2025, Spring 2024</span>
@@ -426,9 +335,7 @@
                     </div>
 
                     <div class="list-item">
-                        <div class="item-header">
-                            <h3>Accounting, T.A.</h3>
-                        </div>
+                        <div class="item-header"><h3>Accounting, T.A.</h3></div>
                         <div class="item-body">
                             <p class="meta-info">B.Sc. in Business Administration, University of Verona</p>
                             <span class="sub-info"><i class="far fa-calendar-alt"></i> Autumn 2023, Autumn 2022, Autumn 2019</span>
@@ -463,11 +370,9 @@
             </div>
             <div class="content-wrapper">
                 <div class="custom-list">
-                    
+
                     <div class="list-item">
-                        <div class="item-header">
-                            <h3>Prof. Emanuele Bracco</h3>
-                        </div>
+                        <div class="item-header"><h3>Prof. Emanuele Bracco</h3></div>
                         <div class="item-body">
                             <p class="meta-info">University of Verona</p>
                             <a href="mailto:emanuele.bracco@univr.it" class="sub-info"><i class="far fa-envelope"></i> emanuele.bracco@univr.it</a>
@@ -475,9 +380,7 @@
                     </div>
 
                     <div class="list-item">
-                        <div class="item-header">
-                            <h3>Prof. Edoardo Grillo</h3>
-                        </div>
+                        <div class="item-header"><h3>Prof. Edoardo Grillo</h3></div>
                         <div class="item-body">
                             <p class="meta-info">University of Padua</p>
                             <a href="mailto:edoardo.grillo@unipd.it" class="sub-info"><i class="far fa-envelope"></i> edoardo.grillo@unipd.it</a>
@@ -498,9 +401,9 @@
                 <div class="fluid-text">
                     <h3 class="card-title">Hobbies & Passions</h3>
                     <p>Outside of my research schedule, I enjoy balancing my analytical work with creative and physical activities. My personal interests include listening to music, playing guitar, reading books, and running.</p>
-                    
+
                     <h3 class="card-title">Martial Arts</h3>
-                    <p>Disnk of <strong>3rd Dan Black Belt</strong>.</p>
+                    <p>Discipline has always been a core part of my life. I practiced karate for many years, dedicating myself to the art until I successfully attained the rank of <strong>3rd Dan Black Belt</strong>.</p>
                 </div>
             </div>
         </div>
@@ -518,7 +421,6 @@
             </address>
             <a href="http://linkedin.com/in/matteo-benedini-754b4a208" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
         </div>
-        <!-- MODIFICA 1: rimossa l'intestazione <h4>Quote</h4> -->
         <div class="footer-right">
             <p class="quote">"Not everything that can be counted counts, and not everything that counts can be counted."</p>
             <p class="quote-author">— Albert Einstein</p>
@@ -529,13 +431,13 @@
         function navigateTo(pageId) {
             const pages = document.querySelectorAll('.page-section');
             pages.forEach(page => page.style.display = 'none');
-            
+
             const links = document.querySelectorAll('.nav-links a');
             links.forEach(link => link.classList.remove('active'));
-            
+
             document.getElementById(pageId).style.display = 'block';
             document.getElementById('link-' + pageId).classList.add('active');
-            
+
             window.scrollTo(0, 0);
         }
     </script>
