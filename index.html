@@ -22,11 +22,24 @@
             --transition: all 0.2s ease-in-out;
 
             /* ================================================
-               MODIFICA 3: sfondo locale dalla repository.
-               Sostituisci il percorso con il nome esatto del
-               tuo file, es. assets/img/background.jpg
+               SFONDI — cambia ogni percorso con il file che
+               preferisci dalla tua repository.
                ================================================ */
-            --bg-image: url('assets/img/sfondo.jpg');
+
+            /* Hero della Home */
+            --bg-hero:              url('assets/img/sfondo.jpg');
+
+            /* Banner in cima a ciascuna pagina interna */
+            --bg-banner-teaching:   url('assets/img/bg-teaching.jpg');
+            --bg-banner-research:   url('assets/img/bg-research.jpg');
+            --bg-banner-references: url('assets/img/bg-references.jpg');
+            --bg-banner-personal:   url('assets/img/bg-personal.jpg');
+
+            /* Intestazioni delle schede (Teaching, References) */
+            --bg-item-header:       url('assets/img/bg-cards.jpg');
+
+            /* Footer */
+            --bg-footer:            url('assets/img/bg-footer.jpg');
         }
 
         * {
@@ -134,15 +147,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* =====================================================
-           MODIFICA 3: sfondo locale usato ovunque al posto
-           dell'URL Unsplash (hero, page-banner, item-header,
-           footer).
-           ===================================================== */
+        /* Stili strutturali comuni a hero e banner (senza sfondo,
+           che viene assegnato individualmente sotto) */
         .hero, .page-banner {
-            background: linear-gradient(var(--overlay-color), var(--overlay-color)), 
-                        var(--bg-image) no-repeat center center;
-            background-size: cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -150,31 +157,56 @@
             text-align: center;
             color: var(--text-light);
             padding: 0 1rem;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+
+        /* ── Hero Home: usa solo --bg-hero ── */
+        .hero {
+            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
+                              var(--bg-hero);
+        }
+
+        /* ── Banner pagine interne: uno sfondo dedicato per pagina ── */
+        #teaching-page   .page-banner {
+            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
+                              var(--bg-banner-teaching);
+        }
+        #research-page   .page-banner {
+            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
+                              var(--bg-banner-research);
+        }
+        #references-page .page-banner {
+            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
+                              var(--bg-banner-references);
+        }
+        #personal-page   .page-banner {
+            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
+                              var(--bg-banner-personal);
         }
 
         /* =====================================================
-           MODIFICA 2: hero ridisegnato con foto affiancata
-           al nome (layout flex row).
+           Hero: foto più grande, affiancata al nome.
            ===================================================== */
         .hero {
-            height: 40vh;
-            /* Override: allineiamo i contenuti in riga */
+            height: 52vh;
             flex-direction: row;
             justify-content: center;
-            gap: 3rem;
+            gap: 3.5rem;
             text-align: left;
             padding: 0 10%;
         }
 
-        /* Contenitore foto rettangolare nell'hero */
+        /* Foto rettangolare — dimensioni aumentate */
         .hero-photo {
             flex-shrink: 0;
-            width: 130px;
-            height: 160px;
+            width: 180px;
+            height: 220px;
             border-radius: 8px;
             object-fit: cover;
             border: 4px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35);
         }
 
         /* Testi dell'hero affiancati alla foto */
@@ -238,11 +270,12 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
-        /* MODIFICA 3: intestazione schede con sfondo locale */
+        /* ── Intestazioni schede: sfondo dedicato ── */
         .item-header {
-            background: linear-gradient(var(--overlay-color), var(--overlay-color)), 
-                        var(--bg-image) no-repeat center center;
+            background-image: linear-gradient(var(--overlay-color), var(--overlay-color)),
+                              var(--bg-item-header);
             background-size: cover;
+            background-position: center center;
             padding: 1rem 1.8rem;
         }
 
@@ -282,11 +315,12 @@
         }
 
         /* --- FOOTER GLOBAL --- */
-        /* MODIFICA 3: footer con sfondo locale */
+        /* ── Footer: sfondo dedicato ── */
         footer {
-            background: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)), 
-                        var(--bg-image) no-repeat center center;
+            background-image: linear-gradient(rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.95)),
+                              var(--bg-footer);
             background-size: cover;
+            background-position: center center;
             color: var(--text-light);
             padding: 4rem 10%;
             display: flex;
@@ -327,7 +361,7 @@
                 gap: 1.5rem;
             }
             .hero h1 { font-size: 2.8rem; }
-            .hero-photo { width: 110px; height: 140px; }
+            .hero-photo { width: 150px; height: 185px; }
 
             .page-banner h2 { font-size: 2.2rem; }
             .content-wrapper { padding: 2rem 5% 4rem 5%; }
@@ -475,10 +509,10 @@
                 <h2 class="section-title-clean">Beyond Academia</h2>
                 <div class="fluid-text">
                     <h3 class="card-title">Hobbies & Passions</h3>
-                    <p>Outside of my research schedule, .</p>
+                    <p>Outside of my research schedule, I enjoy balancing my analytical work with creative and physical activities. My personal interests include listening to music, playing guitar, reading books, and running.</p>
                     
                     <h3 class="card-title">Martial Arts</h3>
-                    <p> of <strong>3rd Dan Black Belt</strong>.</p>
+                    <p>Discipline has always been a core part of my life. I practiced karate for many years, dedicating myself to the art until I successfully attained the rank of <strong>3rd Dan Black Belt</strong>.</p>
                 </div>
             </div>
         </div>
