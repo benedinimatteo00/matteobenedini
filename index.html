@@ -29,13 +29,10 @@
             --bg-hero:              url('assets/img/sfondo.jpg');
 
             /* Banner in cima a ciascuna pagina interna */
-            --bg-banner-teaching:   url('assets/img/typewriter.jpg');
-            --bg-banner-research:   url('assets/img/typewriter.jpg');
+            --bg-banner-teaching:   url('assets/img/math.jpg');
+            --bg-banner-research:   url('assets/img/chess.jpg');
             --bg-banner-references: url('assets/img/typewriter.jpg');
-            --bg-banner-personal:   url('assets/img/typewriter.jpg');
-
-            /* Intestazioni delle schede (Teaching, References) */
-            --bg-item-header:       url('assets/img/typewriter.jpg');
+            --bg-banner-personal:   url('assets/img/ror.jpg');
 
             /* Footer */
             --bg-footer:            url('assets/img/typewriter.jpg');
@@ -120,7 +117,7 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── Stili base per hero e banner (NESSUN overlay colorato) ── */
+        /* ── Stili base per hero e banner ── */
         .hero, .page-banner {
             display: flex;
             flex-direction: column;
@@ -132,11 +129,10 @@
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
-            /* ombra leggera sul testo per leggibilità senza overlay */
             text-shadow: 0 2px 10px rgba(0,0,0,0.65);
         }
 
-        /* ── Hero Home: foto pura, ZERO overlay ── */
+        /* ── Hero Home ── */
         .hero {
             background-image: var(--bg-hero);
             height: 58vh;
@@ -147,7 +143,7 @@
             padding: 0 10%;
         }
 
-        /* ── Banner pagine interne: immagine diversa per pagina, ZERO overlay ── */
+        /* ── Banner pagine interne ── */
         #teaching-page   .page-banner { background-image: var(--bg-banner-teaching);   }
         #research-page   .page-banner { background-image: var(--bg-banner-research);   }
         #references-page .page-banner { background-image: var(--bg-banner-references); }
@@ -156,7 +152,7 @@
         .page-banner { height: 20vh; width: 100%; }
         .page-banner h2 { font-size: 2.6rem; letter-spacing: -0.5px; }
 
-        /* ── Foto profilo più grande ── */
+        /* ── Foto profilo ── */
         .hero-photo {
             flex-shrink: 0;
             width: 220px;
@@ -196,21 +192,25 @@
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            /* ombra leggermente più marcata per dare rilievo alla scheda */
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
         }
 
-        /* ── Intestazioni schede: immagine pura, ZERO overlay ── */
+        /* ── Header schede: sfondo blu con gradiente per profondità ── */
         .item-header {
-            background-image: var(--bg-item-header);
-            background-size: cover;
-            background-position: center center;
-            padding: 1rem 1.8rem;
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            padding: 1.2rem 1.8rem;
+            /* bordo sinistro azzurro brillante come accento visivo */
+            border-left: 5px solid #60a5fa;
         }
+
+        /* ── Titolo scheda: più grande, spaziato, con icona decorativa ── */
         .item-header h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;       /* era 1.4rem */
+            font-weight: 700;
             color: var(--text-light);
-            letter-spacing: 0.3px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.75);
+            letter-spacing: 0.4px;
+            text-shadow: none;       /* non serve su sfondo piatto */
         }
 
         .item-body { padding: 1.8rem; background-color: var(--bg-light); }
@@ -227,7 +227,7 @@
             margin: 1rem 0;
         }
 
-        /* --- FOOTER (velo scuro neutro — necessario per leggibilità testo bianco) --- */
+        /* --- FOOTER --- */
         footer {
             background-image: linear-gradient(rgba(15,23,42,0.92), rgba(15,23,42,0.92)),
                               var(--bg-footer);
