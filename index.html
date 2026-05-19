@@ -33,6 +33,26 @@
             --bg-banner-references: url('assets/img/sfondo5.png');
             --bg-banner-personal:   url('assets/img/sfondo3.png');
 
+            /* ── Lista stile CV per Teaching ── */
+        .teaching-list { list-style: none; padding: 0; }
+        .teaching-list li {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+            align-items: flex-start;
+        }
+        .teaching-list li::before {
+            content: '▪';
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        .teaching-item-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .teaching-item-meta  { font-style: italic; color: #475569; margin-bottom: 0.2rem; }
+        .teaching-item-detail { font-size: 1rem; margin-bottom: 0.1rem; }
+        .teaching-item-detail span { font-family: monospace; }
+            
             /* Footer */
             --bg-footer:            url('assets/img/sfondo1.jpg');
         }
@@ -320,33 +340,33 @@
                 <h2>Teaching Activities</h2>
             </div>
             <div class="content-wrapper">
-                <div class="custom-list">
+                <ul class="teaching-list">
 
-                    <div class="list-item">
-                        <div class="item-header"><h3>Industrial Organization, T.A.</h3></div>
-                        <div class="item-body">
-                            <p class="meta-info">B.Sc. in Business Administration, University of Verona</p>
-                            <span class="sub-info"><i class="far fa-calendar-alt"></i> Spring 2026</span>
-                        </div>
-                    </div>
+    <li>
+        <div>
+            <p class="teaching-item-title">Industrial Organization, T.A.</p>
+            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
+            <p class="teaching-item-detail">Spring 2026</p>
+        </div>
+    </li>
 
-                    <div class="list-item">
-                        <div class="item-header"><h3>Financial Mathematics, T.A.</h3></div>
-                        <div class="item-body">
-                            <p class="meta-info">B.Sc. in Business Administration, University of Verona</p>
-                            <span class="sub-info"><i class="far fa-calendar-alt"></i> Spring 2026, Spring 2025, Spring 2024</span>
-                        </div>
-                    </div>
+    <li>
+        <div>
+            <p class="teaching-item-title">Financial Mathematics, T.A.</p>
+            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
+            <p class="teaching-item-detail">Spring 2026, Spring 2025, Spring 2024</p>
+        </div>
+    </li>
 
-                    <div class="list-item">
-                        <div class="item-header"><h3>Accounting, T.A.</h3></div>
-                        <div class="item-body">
-                            <p class="meta-info">B.Sc. in Business Administration, University of Verona</p>
-                            <span class="sub-info"><i class="far fa-calendar-alt"></i> Autumn 2023, Autumn 2022, Autumn 2019</span>
-                        </div>
-                    </div>
+    <li>
+        <div>
+            <p class="teaching-item-title">Accounting, T.A.</p>
+            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
+            <p class="teaching-item-detail">Autumn 2026, Autumn 2025, Autumn 2024</p>
+        </div>
+    </li>
 
-                </div>
+</ul>
             </div>
         </div>
 
