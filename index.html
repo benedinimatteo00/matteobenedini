@@ -6,7 +6,8 @@
     <title>Matteo Benedini - Academic Profile</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Eb Garamond:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* --- VARIABILI E RESET --- */
@@ -19,41 +20,11 @@
             --bg-gray:       #f8fafc;
             --transition:    all 0.2s ease-in-out;
 
-            /* ================================================
-               SFONDI — sostituisci ogni percorso con il file
-               che vuoi dalla tua repository.
-               ================================================ */
-
-            /* Hero della Home */
             --bg-hero:              url('assets/img/sfondo.jpg');
-
-            /* Banner in cima a ciascuna pagina interna */
             --bg-banner-teaching:   url('assets/img/sfondo2.jpg');
             --bg-banner-research:   url('assets/img/sfondo4.jpg');
             --bg-banner-references: url('assets/img/sfondo5.png');
             --bg-banner-personal:   url('assets/img/sfondo3.png');
-
-            /* ── Lista stile CV per Teaching ── */
-        .teaching-list { list-style: none; padding: 0; }
-        .teaching-list li {
-            display: flex;
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
-            align-items: flex-start;
-        }
-        .teaching-list li::before {
-            content: '▪';
-            font-size: 1.6rem;
-            color: var(--text-dark);
-            flex-shrink: 0;
-            line-height: 1.2;
-        }
-        .teaching-item-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.3rem; }
-        .teaching-item-meta  { font-style: italic; color: #475569; margin-bottom: 0.2rem; }
-        .teaching-item-detail { font-size: 1rem; margin-bottom: 0.1rem; }
-        .teaching-item-detail span { font-family: monospace; }
-            
-            /* Footer */
             --bg-footer:            url('assets/img/sfondo1.jpg');
         }
 
@@ -61,6 +32,7 @@
 
         html, body {
             height: 100%;
+            /* 1) EB Garamond come font base per tutto il corpo */
             font-family: 'EB Garamond', serif;
             color: var(--text-dark);
             line-height: 1.6;
@@ -69,9 +41,16 @@
             flex-direction: column;
         }
 
-        h3, .nav-brand, .section-title-clean, .card-title {
-            font-family: 'Inter', sans-serif;
+        /* Header schede e titoli di sezione restano in Eb Garamond */
+        h3, .section-title-clean, .card-title {
+            font-family: 'Eb Garamond', sans-serif;
             font-weight: 700;
+        }
+
+        /* 1) Nav brand in EB Garamond */
+        .nav-brand {
+            font-family: 'EB Garamond', serif;
+            font-weight: 600;
         }
 
         /* Playfair Display Italic — solo titoli di pagina */
@@ -112,10 +91,12 @@
         .nav-brand { font-size: 1.3rem; color: var(--text-light); letter-spacing: 0.5px; }
         .nav-links  { display: flex; list-style: none; gap: 1.8rem; }
         .nav-links a {
-            color: #1e293b;
+            /* 2) Tutte le voci di navigazione bianche */
+            color: var(--text-light);
+            font-family: 'Eb Garamond', sans-serif;
             font-weight: 500;
             font-size: 0.95rem;
-            cursor: pointer;
+            cursor: poEb Garamond;
             padding-bottom: 4px;
             border-bottom: 2px solid transparent;
             transition: var(--transition);
@@ -162,7 +143,7 @@
             padding: 0 10%;
         }
 
-        /* ── Banner pagine interne ── */
+        /* ── Banner pagine Eb Garamondne ── */
         #teaching-page   .page-banner { background-image: var(--bg-banner-teaching);   }
         #research-page   .page-banner { background-image: var(--bg-banner-research);   }
         #references-page .page-banner { background-image: var(--bg-banner-references); }
@@ -172,6 +153,7 @@
             color: #1e293b;
             text-shadow: none;
         }
+
         .page-banner { height: 20vh; width: 100%; }
         .page-banner h2 { font-size: 2.6rem; letter-spacing: -0.5px; }
 
@@ -182,7 +164,8 @@
             height: 270px;
             border-radius: 8px;
             object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.4);
+            /* 4) Nessun contorno */
+            border: none;
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
@@ -193,7 +176,17 @@
             gap: 0.4rem;
         }
         .hero h1 { font-size: 3.8rem; margin-bottom: 0.2rem; letter-spacing: -0.5px; }
-        .hero p  { font-size: 1.5rem; font-weight: 700; color: #e2e8f0; margin: 0; }
+
+        /* 3) Sottotitoli hero più evidenti */
+        .hero p {
+            font-size: 1.6rem;
+            font-weight: 600;
+            font-family: 'EB Garamond', serif;
+            color: #ffffff;
+            margin: 0;
+            letter-spacing: 0.3px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+        }
 
         .profile-container { display: none; }
 
@@ -205,50 +198,69 @@
             width: 100%;
         }
         .section-title-clean { font-size: 2.2rem; font-weight: 700; color: var(--primary-color); margin-bottom: 2rem; }
-        .fluid-text p  { margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+        /* 1) EB Garamond per i testi dei contenuti */
+        .fluid-text p  { margin-bottom: 1.5rem; font-size: 1.15rem; font-family: 'EB Garamond', serif; }
         .fluid-text h3 { font-size: 1.4rem; color: var(--primary-color); margin-top: 2.5rem; margin-bottom: 1rem; }
 
-        /* --- SCHEDE --- */
+        /* --- SCHEDE (References) --- */
         .custom-list { display: flex; flex-direction: column; gap: 2rem; }
         .list-item {
             background-color: var(--bg-light);
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             overflow: hidden;
-            /* ombra leggermente più marcata per dare rilievo alla scheda */
             box-shadow: 0 4px 16px rgba(0,0,0,0.07);
         }
-
-        /* ── Header schede: sfondo blu con gradiente per profondità ── */
         .item-header {
             background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
             padding: 1.2rem 1.8rem;
-            /* bordo sinistro azzurro brillante come accento visivo */
             border-left: 5px solid #60a5fa;
         }
-
-        /* ── Titolo scheda: più grande, spaziato, con icona decorativa ── */
         .item-header h3 {
-            font-size: 1.5rem;       /* era 1.4rem */
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-light);
             letter-spacing: 0.4px;
-            text-shadow: none;       /* non serve su sfondo piatto */
+            text-shadow: none;
         }
 
-        .item-body { padding: 1.8rem; background-color: var(--bg-light); }
-        .item-body .meta-info { font-size: 1.05rem; font-weight: 400; color: var(--text-dark); margin-bottom: 0.5rem; }
-        .item-body .sub-info  { display: inline-block; color: #64748b; font-size: 0.95rem; font-weight: 500; }
+        /* 1) EB Garamond per il corpo delle schede */
+        .item-body { padding: 1.8rem; background-color: var(--bg-light); font-family: 'EB Garamond', serif; }
+        .item-body .meta-info { font-size: 1.1rem; font-weight: 400; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .item-body .sub-info  { display: inline-block; color: #64748b; font-size: 1rem; font-weight: 500; font-family: 'EB Garamond', serif; }
 
         .research-paper-title {
             font-size: 1.3rem;
             font-style: italic;
+            font-family: 'EB Garamond', serif;
             color: var(--text-dark);
             font-weight: 500;
             border-left: 3px solid var(--primary-color);
             padding-left: 1rem;
             margin: 1rem 0;
         }
+
+        /* ── Lista stile CV per Teaching ── */
+        .teaching-list { list-style: none; padding: 0; }
+        .teaching-list li {
+            display: flex;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+            align-items: flex-start;
+        }
+        .teaching-list li::before {
+            content: '▪';
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            flex-shrink: 0;
+            line-height: 1.2;
+        }
+        /* 1) EB Garamond anche per la lista teaching */
+        .teaching-item-title  { font-size: 1.5rem; font-weight: 700; font-family: 'Eb Garamond', sans-serif; margin-bottom: 0.3rem; }
+        .teaching-item-meta   { font-style: italic; font-family: 'EB Garamond', serif; font-size: 1.1rem; color: #475569; margin-bottom: 0.2rem; }
+        .teaching-item-detail { font-family: 'EB Garamond', serif; font-size: 1.05rem; margin-bottom: 0.1rem; }
+        .teaching-item-detail span { font-family: monospace; }
 
         /* --- FOOTER --- */
         footer {
@@ -265,13 +277,13 @@
             gap: 3rem;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
-        .footer-left h4, .footer-right h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #94a3b8; }
-        .footer-left address { font-style: normal; color: #cbd5e1; line-height: 1.8; }
+        .footer-left h4, .footer-right h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; color: #94a3b8; font-family: 'Eb Garamond', sans-serif; }
+        .footer-left address { font-style: normal; font-family: 'EB Garamond', serif; font-size: 1.1rem; color: #cbd5e1; line-height: 1.8; }
         .social-link { display: inline-block; margin-top: 1.5rem; font-size: 1.5rem; color: #cbd5e1; }
         .social-link:hover { color: #60a5fa; }
         .footer-right { max-width: 450px; }
-        .quote        { font-style: italic; font-size: 1.1rem; color: #cbd5e1; margin-bottom: 0.5rem; }
-        .quote-author { font-size: 0.95rem; color: #94a3b8; text-align: right; }
+        .quote        { font-style: italic; font-family: 'EB Garamond', serif; font-size: 1.2rem; color: #cbd5e1; margin-bottom: 0.5rem; }
+        .quote-author { font-family: 'EB Garamond', serif; font-size: 1rem; color: #94a3b8; text-align: right; }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
@@ -326,7 +338,7 @@
                 <div class="fluid-text">
                     <p>I am a second year Ph.D. student in Economics and Finance at the University of Verona, Department of Economics.</p>
                     <p>I studied at the University of Verona where I obtained my Bachelor's degree in Business Administration and my Master's degree in Quantitative Finance.</p>
-                    <p>My research interests are: Game Theory and Political Economy.</p>
+                    <p>My research Eb Garamondests are: Game Theory and Political Economy.</p>
                     <p>Currently I'm working on a model about war and military aid.</p>
                     <p>Please find the latest version of my CV <a href="https://drive.google.com/file/d/1B1nQcLQ2S7HV3RCZ1yYB8o0v6ySkFnml/view?usp=sharing" target="_blank">here</a>.</p>
                     <p>Email Address: <a href="mailto:matteo.benedini@univr.it">matteo.benedini@univr.it</a></p>
@@ -342,31 +354,31 @@
             <div class="content-wrapper">
                 <ul class="teaching-list">
 
-    <li>
-        <div>
-            <p class="teaching-item-title">Industrial Organization, T.A.</p>
-            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
-            <p class="teaching-item-detail">Spring 2026</p>
-        </div>
-    </li>
+                    <li>
+                        <div>
+                            <p class="teaching-item-title">Industrial Organization, T.A.</p>
+                            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
+                            <p class="teaching-item-detail">Spring 2026</p>
+                        </div>
+                    </li>
 
-    <li>
-        <div>
-            <p class="teaching-item-title">Financial Mathematics, T.A.</p>
-            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
-            <p class="teaching-item-detail">Spring 2026, Spring 2025, Spring 2024</p>
-        </div>
-    </li>
+                    <li>
+                        <div>
+                            <p class="teaching-item-title">Financial Mathematics, T.A.</p>
+                            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
+                            <p class="teaching-item-detail">Spring 2026, Spring 2025, Spring 2024</p>
+                        </div>
+                    </li>
 
-    <li>
-        <div>
-            <p class="teaching-item-title">Accounting, T.A.</p>
-            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
-            <p class="teaching-item-detail">Autumn 2026, Autumn 2025, Autumn 2024</p>
-        </div>
-    </li>
+                    <li>
+                        <div>
+                            <p class="teaching-item-title">Accounting, T.A.</p>
+                            <p class="teaching-item-meta">B.Sc. in Business Administration, University of Verona</p>
+                            <p class="teaching-item-detail">Autumn 2026, Autumn 2025, Autumn 2024</p>
+                        </div>
+                    </li>
 
-</ul>
+                </ul>
             </div>
         </div>
 
@@ -376,12 +388,12 @@
                 <h2>Research</h2>
             </div>
             <div class="content-wrapper">
-            <h2 class="section-title-clean">Ongoing Research</h2>
+                <h2 class="section-title-clean">Ongoing Research</h2>
                 <div class="research-paper-title">
                     "Learning how to help: a model of conflicts and military aid"
                 </div>
+            </div>
         </div>
-    </div>
 
         <!-- REFERENCES PAGE -->
         <div id="references-page" class="page-section">
@@ -414,13 +426,13 @@
         <!-- PERSONAL PAGE -->
         <div id="personal-page" class="page-section">
             <div class="page-banner">
-                <h2>Personal Interests</h2>
+                <h2>Personal Eb Garamondests</h2>
             </div>
             <div class="content-wrapper">
                 <h2 class="section-title-clean">Beyond Academia</h2>
                 <div class="fluid-text">
                     <h3 class="card-title">Hobbies & Passions</h3>
-                    <p>In my leisure time, I enjoy a range of activities, including listening to music, playing the guitar, reading and watching films and TV series. 
+                    <p>In my leisure time, I enjoy a range of activities, including listening to music, playing the guitar, reading and watching films and TV series.
                         My favourite genres are crime novels, thrillers and true crime.</p>
                     <p>In addition, I like travel and cultural appreciation, particularly with regard to museums and historical sites.</p>
                     <p>I practised karate for a long time until I reached the 3rd Dan. I really enjoy running now.</p>
